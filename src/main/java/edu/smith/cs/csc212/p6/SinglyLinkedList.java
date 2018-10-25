@@ -21,7 +21,15 @@ public class SinglyLinkedList<T> implements P6List<T>, Iterable<T> {
 
 	@Override
 	public T removeBack() {
-		throw new P6NotImplemented();
+		checkNotEmpty();
+		Node<T> last = start;
+		Node<T> previous = null;
+		while (last != null) {
+			previous = last;
+			last = last.next;
+		}
+		T previousNode = previous.value;
+		return previousNode;
 	}
 
 	@Override
